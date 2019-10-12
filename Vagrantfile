@@ -7,6 +7,7 @@ cluster = {
   "db-server-1" => { :ip => "192.168.16.105", :cpus => 1, :mem => 512, :provision => "db-server-1/run.sh" },
   "db-server-2" => { :ip => "192.168.16.106", :cpus => 1, :mem => 512, :provision => "db-server-2/run.sh" },
   "db-server-3" => { :ip => "192.168.16.107", :cpus => 1, :mem => 512, :provision => "db-server-3/run.sh" },
+  "web-server" => { :ip => "192.168.16.104", :cpus => 1, :mem => 512, :provision => "web-server/run.sh" }
 }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
