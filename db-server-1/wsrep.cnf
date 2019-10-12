@@ -1,0 +1,17 @@
+[mysqld]
+wsrep_provider=/usr/lib/libgalera_smm.so
+
+wsrep_cluster_name=db-cluster
+wsrep_cluster_address=gcomm://192.168.16.105,192.168.16.106,192.168.16.107
+
+wsrep_node_name=db-server-1
+wsrep_node_address=192.168.16.105
+
+wsrep_sst_method=xtrabackup-v2
+wsrep_sst_auth=sstuser:secret
+
+pxc_strict_mode=ENFORCING
+
+binlog_format=ROW
+default_storage_engine=InnoDB
+innodb_autoinc_lock_mode=2
