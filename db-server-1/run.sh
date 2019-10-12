@@ -22,3 +22,7 @@ mysql -u root -p$DBPASS -e "CREATE USER 'sstuser'@'localhost' IDENTIFIED BY '$DB
 mysql -u root -p$DBPASS -e "CREATE USER 'proxysql_monitor'@'localhost' IDENTIFIED BY '$DBPASS'; GRANT USAGE ON *.* TO 'proxysql_monitor'@'localhost';"
 
 mysql -u root -p$DBPASS -e "CREATE USER 'proxysql_user'@'192.168.16.104' IDENTIFIED BY '$DBPASS'; GRANT ALL ON *.* TO 'proxysql_user'@'192.168.16.104';"
+
+cp /vagrant/quiquiz/fp_pweb.sql /home/vagrant/fp_pweb.sql
+mysql -u root -p$DBPASS -e "CREATE DATABASE fp_pweb;"
+mysql -u root -p$DBPASS fp_pweb < fp_pweb.sql

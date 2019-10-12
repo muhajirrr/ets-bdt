@@ -24,3 +24,18 @@ mysql -u admin -padmin -h 127.0.0.1 -P 6032 -e "INSERT INTO scheduler (active,in
 mysql -u admin -padmin -h 127.0.0.1 -P 6032 -e "SAVE MYSQL SERVERS TO DISK; SAVE MYSQL VARIABLES TO DISK; SAVE MYSQL USERS TO DISK; SAVE SCHEDULER TO DISK;"
 
 sudo service proxysql restart
+
+sudo apt-get install -y apache2
+
+sudo apt-get install -y php libapache2-mod-php php-mcrypt php-mysql
+
+sudo a2enmod rewrite
+
+sudo cp /vagrant/web-server/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+sudo service apache2 restart
+
+git clone https://github.com/muhajirrr/QuiQuiz.git www/quiquiz
+cp /vagrant/quiquiz/app/Config.php www/quiquiz/app/Config.php
+cp /vagrant/quiquiz/lib/DB.php www/quiquiz/lib/DB.php
+sudo chmod -R 777 www/quiquiz
