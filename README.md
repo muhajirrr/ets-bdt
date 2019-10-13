@@ -62,6 +62,7 @@ Distributed database implementation using Percona XtraDB Cluster 5.7 and ProxySQ
     INSERT INTO mysql_servers(hostgroup_id, hostname, port) VALUES (0, '192.168.16.107', 3306);
     ```
 - Membuat ProxySQL Monitoring User
+    <br>
     Pada database server:
     ```
     CREATE USER 'proxysql'@'%' IDENTIFIED BY 'ProxySQLPa55';
@@ -73,6 +74,7 @@ Distributed database implementation using Percona XtraDB Cluster 5.7 and ProxySQ
     UPDATE global_variables SET variable_value='ProxySQLPa55' WHERE variable_name='mysql-monitor_password';
     ```
 - Membuat ProxySQL Client User
+    <br>
     Pada ProxySQL server:
     ```
     INSERT INTO mysql_users (username,password) VALUES ('sbuser','sbpass');
